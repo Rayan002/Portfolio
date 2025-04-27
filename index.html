@@ -140,7 +140,7 @@
             height: 300px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 30px #000000;
         }
         
         /* About Section */
@@ -515,6 +515,82 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
+        /* codecraft code */
+        @keyframes gentleFloat {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-5px) rotate(1deg);
+      }
+      50% {
+        transform: translateY(-8px) rotate(0deg);
+      }
+      75% {
+        transform: translateY(-4px) rotate(-1deg);
+      }
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+    }
+    
+    .boat-icon {
+      display: inline-block;
+      width: auto;
+      height: 48px; /* Match the font size of h1 */
+      margin-left: 15px;
+      vertical-align: middle;
+      filter: brightness(0) saturate(100%) invert(46%) sepia(15%) saturate(2322%) hue-rotate(73deg) brightness(95%) contrast(89%);
+    }
+    
+    .title-container {
+      position: relative;
+      display: inline-block;
+      margin: 0 auto;
+    }
+    
+    .water {
+      position: absolute;
+      height: 10px;
+      width: 100%;
+      bottom: -15px;
+      left: 0;
+      border-radius: 50%;
+      background: linear-gradient(to right, rgba(62, 142, 65, 0.1), rgba(62, 142, 65, 0.3));
+      animation: waterWave 3s ease-in-out infinite;
+    }
+    
+    @keyframes waterWave {
+      0% {
+        transform: translateX(-5px) scaleX(0.95);
+      }
+      50% {
+        transform: translateX(5px) scaleX(1.05);
+      }
+      100% {
+        transform: translateX(-5px) scaleX(0.95);
+      }
+    }
+    
+    .floating-text {
+      display: inline-flex;
+      align-items: center;
+      color: #3e8e41;
+      animation: gentleFloat 4s ease-in-out infinite;
+      position: relative;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 48px;
+      font-weight: 600;
+      margin: 40px 0;
+      text-align: center;
+      color: #333;
+    }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -532,10 +608,14 @@
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/rayan-dasoriya/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/mohamed-rayan-6397a3245/" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/Rayan002" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://play.google.com/store/apps/" target="_blank"><i class="fab fa-google-play"></i></a>
+                    <a href="https://play.google.com/store/apps/dev?id=6702361246912462503&hl=en" target="_blank"><i class="fab fa-google-play"></i></a>
+                    <a href="mailto:mohamedrayanklt@gmail.com" target="_blank" onclick="redirectToGmail()"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/iamrayan002" target="_blank"><i class="fab fa-instagram"></i></a>
+                    
                 </div>
+                
             </nav>
         </div>
     </header>
@@ -543,13 +623,22 @@
     <!-- Hero Section -->
     <section id="home" class="hero container">
         <div class="hero-content">
-            <h1>Rayan's CodeCraft</h1>
-            <h2>Hi I'm Rayan and I'm an App Developer</h2>
-            <p>Hello! I'm Mohamed Rayan, a software engineer. I bring expertise in various programming languages and frameworks to develop robust applications.</p>
-            <a href="mailto:mohamedrayanklt@gmail.com" class="cta-button">Contact <i class="fas fa-envelope"></i></a>
+            <h1>
+                <span style="color: white;">Rayan's </span>
+                <span class="title-container">
+                  <span class="floating-text">
+                    CodeCraft
+                    <img src="img/boat.png" class="boat-icon"></img>
+                  </span>
+                  <div class="water"></div>
+                </span>
+              </h1>
+            <h2>Hi, I'm Rayan, and I'm a Software Engineer.</h2>
+            <p>Hello! I'm Mohamed Rayan, I bring expertise in various programming languages and frameworks to develop robust applications.</p>
+            <a href="mailto:mohamedrayanklt@gmail.com" class="cta-button"onclick="redirectToGmail()">Contact <i class="fas fa-envelope"></i></a>
         </div>
         <div class="hero-image">
-            <img src="/api/placeholder/300/300" alt="Rayan's Profile" class="profile-image">
+            <img src="img/pro5.png" alt="Rayan's Profile" class="profile-image">
         </div>
     </section>
 
@@ -559,7 +648,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm Mohamed Rayan, a software engineer with a passion for creating efficient and user-friendly applications. With a strong foundation in app development, I specialize in Android and Flutter technologies to build robust mobile solutions.</p>
+                    <p>I'm Mohamed Rayan, a software engineer with a passion for creating efficient and user-friendly applications. With a strong foundation in app development, I specialize in Mobile Application Development.</p>
                     <p>Currently pursuing my M.Tech in Software Engineering at Vellore Institute of Technology, I'm constantly enhancing my skills and knowledge in the field. My expertise spans across various programming languages and frameworks, allowing me to approach problems with versatility and creativity.</p>
                     <p>Throughout my academic and professional journey, I've contributed to various projects and organizations, gaining valuable experience in both team environments and independent work. I'm committed to delivering high-quality solutions that meet client needs while maintaining clean, maintainable code.</p>
                 </div>
@@ -574,19 +663,19 @@
             <div class="education-grid">
                 <div class="education-card">
                     <div class="education-logo">
-                        <img src="/api/placeholder/120/120" alt="VIT Logo">
+                        <img src="img/vitlogo.jpg" alt="VIT Logo">
                     </div>
                     <div class="education-info">
                         <h3 class="education-title">M.Tech Software Engineering - Integrated (5yrs)</h3>
                         <h4 class="education-institution">VELLORE INSTITUTE OF TECHNOLOGY, VELLORE</h4>
                         <div class="education-period">2020 - present</div>
-                        <p class="education-description">Currently pursuing an integrated master's degree in Software Engineering, gaining comprehensive knowledge in software development, design patterns, algorithms, and project management.</p>
+                        <p class="education-description">Currently pursuing an integrated master's degree in Software Engineering, gaining comprehensive knowledge in software development.</p>
                     </div>
                 </div>
                 
                 <div class="education-card">
                     <div class="education-logo">
-                        <img src="/api/placeholder/120/120" alt="Islamiah School Logo">
+                        <img src="img/ihsslogo.png" alt="Islamiah School Logo">
                     </div>
                     <div class="education-info">
                         <h3 class="education-title">SSLC | HSC</h3>
@@ -606,49 +695,49 @@
             <div class="experience-grid">
                 <div class="experience-card">
                     <div class="experience-logo">
-                        <img src="/api/placeholder/100/100" alt="OROM Corporation Logo">
+                        <img src="img/oromlogo.jpg" alt="OROM Corporation Logo">
                     </div>
                     <div class="experience-info">
                         <h3 class="experience-title">Intern at OROM CORPORATION</h3>
                         <h4 class="experience-company">App Developer at Start-Up Company under VITTBI</h4>
                         <p class="experience-description">Orom is an organization that provides customer services ranging from logistics, IT services, and educational services.</p>
-                        <a href="#" class="learn-more">Learn More</a>
+                        <!-- <a href="#" class="learn-more">Learn More</a> -->
                     </div>
                 </div>
                 
                 <div class="experience-card">
                     <div class="experience-logo">
-                        <img src="/api/placeholder/100/100" alt="VIT-STELLAR Logo">
+                        <img src="img/stellarlogo.jpeg" alt="VIT-STELLAR Logo">
                     </div>
                     <div class="experience-info">
                         <h3 class="experience-title">Core Committee Member of VIT-STELLAR</h3>
                         <h4 class="experience-company">Astronomy Club of VIT (Technical Team Member)</h4>
                         <p class="experience-description">It is a group of dynamic individuals who are incredibly passionate about astronomy, cosmology, astrophysics and everything that lies beyond our skies.</p>
-                        <a href="#" class="learn-more">Learn More</a>
+                        <!-- <a href="#" class="learn-more">Learn More</a> -->
                     </div>
                 </div>
                 
                 <div class="experience-card">
                     <div class="experience-logo">
-                        <img src="/api/placeholder/100/100" alt="Freelancer Logo">
+                        <img src="img/applogo.png" alt="Freelancer Logo">
                     </div>
                     <div class="experience-info">
                         <h3 class="experience-title">Independent Contractor in Android App Development</h3>
                         <h4 class="experience-company">Freelancer</h4>
                         <p class="experience-description">As a freelance app developer, I have cultivated a robust portfolio of successful projects, collaborating with numerous clients to create tailored Android applications.</p>
-                        <a href="https://play.google.com/store/apps/" target="_blank" class="learn-more">Visit Google Playstore</a>
+                        <a href="https://play.google.com/store/apps/dev?id=6702361246912462503&hl=en" target="_blank" class="learn-more">Visit Google Playstore</a>
                     </div>
                 </div>
                 
                 <div class="experience-card">
                     <div class="experience-logo">
-                        <img src="/api/placeholder/100/100" alt="TFLEX Logo">
+                        <img src="img/tflexlogo.jpg" alt="TFLEX Logo">
                     </div>
                     <div class="experience-info">
                         <h3 class="experience-title">Core Member of TFLEX</h3>
                         <h4 class="experience-company">Start-up IT Service Company</h4>
                         <p class="experience-description">TFLEX is an IT solutions provider that offers a wide range of services, including web development, app development, UI/UX design and more.</p>
-                        <a href="#" class="learn-more">Visit Website</a>
+                        <a href="https://tflex.tech/?i=1" class="learn-more">Visit Website</a>
                     </div>
                 </div>
             </div>
@@ -665,7 +754,9 @@
                     <h3 class="skill-name">Android</h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-flutter"></i></div>
+                    <div class="skill-icon">
+                        <img src="img/flutter_logo.svg" alt="Flutter Logo" style="width: 40px; height: 40px;">
+                    </div>
                     <h3 class="skill-name">Flutter</h3>
                 </div>
                 <div class="skill-card">
@@ -693,11 +784,15 @@
                     <h3 class="skill-name">Figma</h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-adobe"></i></div>
+                     <div class="skill-icon">
+                        <img src="img/illustrator_logo.svg" alt="Flutter Logo" style="width: 40px; height: 40px;">
+                    </div>
                     <h3 class="skill-name">Adobe Illustrator</h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon"><i class="fab fa-adobe"></i></div>
+                    <div class="skill-icon">
+                        <img src="img/xd_logo.png" alt="Flutter Logo" style="width: 40px; height: 40px;">
+                    </div>
                     <h3 class="skill-name">Adobe XD</h3>
                 </div>
                 <div class="skill-card">
@@ -762,14 +857,24 @@
                 <a href="#contact">Contact</a>
             </div>
             <div class="social-links" style="justify-content: center; margin-bottom: 20px;">
-                <a href="https://www.linkedin.com/in/rayan-dasoriya/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Rayan002" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://play.google.com/store/apps/" target="_blank"><i class="fab fa-google-play"></i></a>
-            </div>
+                <a href="https://www.linkedin.com/in/mohamed-rayan-6397a3245/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Rayan002" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://play.google.com/store/apps/dev?id=6702361246912462503&hl=en" target="_blank"><i class="fab fa-google-play"></i></a>
+                    <a href="mailto:mohamedrayanklt@gmail.com" target="_blank" onclick="redirectToGmail()"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/iamrayan002" target="_blank"><i class="fab fa-instagram"></i></a>
+                   </div>
             <p class="copyright">Designed and Developed By MOHAMED RAYAN © 2025</p>
         </div>
     </footer>
 
+
+    <script>
+        function redirectToGmail() {
+          var recipientEmail = "mohamedrayanklt@gmail.com";
+          var gmailURL = "https://mail.google.com/mail/?view=cm&tf=0&to=" + recipientEmail;
+          window.open(gmailURL, "_blank");
+        }
+      </script>
     <script>
         // Form submission handler
         document.getElementById('contactForm').addEventListener('submit', function(event) {
